@@ -1,0 +1,157 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cookie Cliker</title>
+
+    <style>
+    body{
+        background-image: url(cookie.jpg);
+        background-size: cover;
+        margin: 0; 
+        padding: 0; 
+    }
+    .cook {
+    position: absolute;
+    top: 50px;       
+    left: 500px;
+    color: aliceblue;
+
+    }
+    .kura{
+        position: absolute; 
+        top: 150px; 
+        left: 400px; 
+        z-index: 2; 
+    }
+    .nıne{
+        position: absolute; 
+        bottom: 365px; 
+        left: 1205px;
+        width: 300px;
+        height: 100px;
+        z-index: 1; 
+        }
+    .cArkaplan {
+        position: absolute; 
+        bottom: 400px; 
+        left: 1200px;
+        width: 300px;
+        height: 100px;
+        z-index: 0; 
+    }
+    .cArkaplan img {
+        width: 100%; 
+        height: 100%; 
+    }
+            .container {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f0f0f0;
+            }
+            .hiddenImage {
+                display: none;
+                max-width: 100px;
+                max-height: 100px;
+            }
+    .clik{
+    position: absolute; 
+        bottom: 380px; 
+        left: 1135px;
+        width: 300px;
+        height: 100px;
+
+
+    }
+    .image{
+               
+        position: absolute; 
+        bottom: 150px; 
+        left: 1000px;
+        width: 30px;
+        height: 10px;
+
+    }
+    </style>
+    </head>
+
+    <body>
+    <div class="kura">
+        <img src="pngegg.png" onclick="clickCounter()" id="31">
+        <p id="demo" class="cook">1</p>
+        <!-- <button onclick="">Click for cookie</button>     -->
+    </div> 
+    <div class="nıne" id="add">
+        <img src="Grandma.webp">
+
+    </div>
+    <div class="cArkaplan">
+        <img src="cArkaplan.jpg">
+    </div>
+    <!-- <div id="container">
+    <img src="chip.webp" id="hiddenImage"> -->
+    </div>
+    <div  class="clik"  >
+    <img src="img.webp" onclick="artırma()" id="artır">
+    </div>
+
+
+    </body>
+
+    <script>
+    var doc = document.getElementById("31");
+
+    function Buyutme() {
+        doc.style.scale = "1";
+    }
+
+    function clickCounter() {
+        var zamanlayici = setTimeout(Buyutme, 30);
+        console.log(localStorage.clickcount);
+        doc.style.scale = "0.99";
+
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        
+        if(localStorage.clickcount >=100){
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        }
+        
+        document.getElementById("demo").innerHTML = localStorage.clickcount;
+ }
+//     function artırma() {
+//   var nıne = document.createElement("add");
+//   newImage.src = 'Grandma..webp ';
+// //   x.setAttribute("width", "10");
+// //   x.setAttribute("height", "10");
+// //   console.log("qwewq")
+// //   x.setAttribute("alt", "The Pulpit Rock");
+//     newImage.className = 'image';  
+//     nıne.appendChild(newImage);
+// }
+function artırma() {
+        var container = document.getElementById('add');
+        var newImage = document.createElement('img');
+        newImage.className = 'ninem';
+        container.appendChild(newImage);
+        newImage.src = 'Grandma.webp';
+        console.log("kapı")    
+        localStorage.clickcount = Number(localStorage.clickcount)+4;
+    }
+
+
+
+
+    
+
+
+
+    </script>
+    </html>
