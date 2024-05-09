@@ -82,7 +82,7 @@
     <body>
     <div class="kura">
         <img src="pngegg.png" onclick="clickCounter()" id="31">
-        <p id="demo" class="cook">1</p>
+        <p id="demo" class="cook"></p>
         <!-- <button onclick="">Click for cookie</button>     -->
     </div> 
     <div class="nıne" id="add">
@@ -103,8 +103,14 @@
     </body>
 
     <script>
+        setInterval(displayHello, 1000);
+        function displayHello() {
+            console.log(localStorage.clickcount);
+        }
     var doc = document.getElementById("31");
-
+    var add = document.getElementById("add")
+    var gp = 0
+    console.log("add")
     function Buyutme() {
         doc.style.scale = "1";
     }
@@ -115,13 +121,19 @@
         doc.style.scale = "0.99";
 
         if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
+            localStorage.clickcount = Number(localStorage.clickcount)+1+gp;
+            console.log(gp);
+        
+        
         } else {
             localStorage.clickcount = 1;
         }
         
         if(localStorage.clickcount >=100){
             localStorage.clickcount = Number(localStorage.clickcount)+1;
+       
+       
+       
         }
         
         document.getElementById("demo").innerHTML = localStorage.clickcount;
@@ -137,21 +149,25 @@
 //     nıne.appendChild(newImage);
 // }
 function artırma() {
+    if (gp<44){    
         var container = document.getElementById('add');
         var newImage = document.createElement('img');
         newImage.className = 'ninem';
         container.appendChild(newImage);
         newImage.src = 'Grandma.webp';
-        console.log("kapı")    
-        localStorage.clickcount = Number(localStorage.clickcount)+4;
-    }
-
-
-
-
+        console.log("add") 
+        
+        gp+=4
     
-
-
+        
+        
+        // gp = gp + 4
+        console.log(gp)   
+        // ++gp=gp+1 
+        // localStorage.clickcount = Number(localStorage.clickcount)+4;
+    }
+    }
+   
 
     </script>
     </html>
